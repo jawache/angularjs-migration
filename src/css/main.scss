@@ -1,0 +1,82 @@
+body {
+  padding-top: 50px;
+}
+
+.main-content {
+  padding: 40px 15px;
+}
+
+.spinner {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
+  padding: 40px 0;
+  p {
+    margin-top: 20px;
+  }
+}
+
+.table {
+  .col-1 {
+    width: 10%;
+  }
+  .col-2 {
+    width: 30%;
+  }
+  .col-3 {
+    width: 30%;
+  }
+  .col-4 {
+    width: 30%;
+  }
+  tr {
+    td {
+      vertical-align: middle;
+      .profile-photo {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
+
+.modal-backdrop.am-fade {
+  opacity: .5;
+  transition: opacity .15s linear;
+  &.ng-enter {
+    opacity: 0;
+    &.ng-enter-active {
+      opacity: .5;
+    }
+  }
+  &.ng-leave {
+    opacity: .5;
+    &.ng-leave-active {
+      opacity: 0;
+    }
+  }
+}
+
+.sortables {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  span:first-child {
+    position: absolute;
+    top: 0;
+  }
+  span:last-child {
+    position: absolute;
+    bottom: 0;
+  }
+  span {
+    color: lightgray;
+    font-size: 18px;
+  }
+  span:hover {
+    color: #002a80;
+  }
+}
