@@ -10,7 +10,12 @@ angular
     "ngAnimate",
     "ui.router"
   ])
-  .config(function($httpProvider, $resourceProvider, laddaProvider, $datepickerProvider) {
+  .config(function(
+    $httpProvider,
+    $resourceProvider,
+    laddaProvider,
+    $datepickerProvider
+  ) {
     laddaProvider.setOption({
       style: "expand-right"
     });
