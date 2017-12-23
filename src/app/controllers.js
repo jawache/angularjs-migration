@@ -1,6 +1,10 @@
 angular
   .module("codecraft")
-  .controller("PersonCreateController", function($scope, $state, ContactService) {
+  .controller("PersonCreateController", function(
+    $scope,
+    $state,
+    ContactService
+  ) {
     $scope.contacts = ContactService;
     $scope.person = {};
 
@@ -11,7 +15,12 @@ angular
       });
     };
   })
-  .controller("PersonEditController", function($scope, $stateParams, $state, ContactService) {
+  .controller("PersonEditController", function(
+    $scope,
+    $stateParams,
+    $state,
+    ContactService
+  ) {
     $scope.contacts = ContactService;
     $scope.person = $scope.contacts.getPerson($stateParams.email);
 
