@@ -1,3 +1,5 @@
+import * as angular from 'angular';
+
 angular.module("codecraft").directive("ccSpinner", function() {
   return {
     restrict: "AE",
