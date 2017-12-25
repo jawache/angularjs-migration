@@ -7,3 +7,4 @@ tmp
 .idea
 src/libs
 data/db.json  
+dist/bundle.js
