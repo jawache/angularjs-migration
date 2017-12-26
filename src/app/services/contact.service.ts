@@ -11,7 +11,7 @@ export class ContactService {
   private isDeleting = false;
   private selectedPerson = null;
   private persons = [];
-  private search = null;
+  private search = "";
   private sorting = 'name';
   private ordering = 'ASC';
 
@@ -57,11 +57,11 @@ export class ContactService {
 
       this.Contact.query(params).then((res) => {
         console.debug(res);
-        for (let person of res.data) {
+        for (let person of res) {
           this.persons.push(person);
         }
 
-        if (!res.data) {
+        if (res.length === 0) {
           this.hasMore = false;
         }
         this.isLoading = false;
