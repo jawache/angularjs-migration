@@ -17,13 +17,14 @@ import './app.routes';
 
 import './polyfills.ts';
 
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {UpgradeModule} from '@angular/upgrade/static';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {HttpClientModule} from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { UpgradeModule } from '@angular/upgrade/static';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { HttpClientModule } from '@angular/common/http';
 
 import { Contact } from "./services/contact.resource";
+import { ContactService } from "./services/contact.service";
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { Contact } from "./services/contact.resource";
     HttpClientModule
   ],
   providers: [
-    Contact
+    Contact,
+    ContactService
   ]
 })
 export class AppModule {

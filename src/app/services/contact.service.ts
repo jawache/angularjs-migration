@@ -1,9 +1,11 @@
 import * as angular from 'angular';
 
-export class ContactService {
-  private Contact;
-  private toaster;
+import { Inject } from "@angular/core";
+import { downgradeInjectable } from "@angular/upgrade/static";
 
+import { Contact } from "./contact.resource";
+
+export class ContactService {
   private page = 1;
   private hasMore = true;
   private isLoading = false;
@@ -15,9 +17,7 @@ export class ContactService {
   private sorting = 'name';
   private ordering = 'ASC';
 
-  constructor(Contact, toaster) {
-    this.Contact = Contact;
-    this.toaster = toaster;
+  constructor(@Inject(Contact) private contact: Contact) {
     this.loadContacts();
   }
 
@@ -49,13 +49,13 @@ export class ContactService {
       this.isLoading = true;
 
       let params = {
-        _page: this.page,
+        _page: this.page.toString(),
         _sort: this.sorting,
         _order: this.ordering,
         q: this.search
       };
 
-      this.Contact.query(params).then((res) => {
+      this.contact.query(params).then((res) => {
         console.debug(res);
         for (let person of res) {
           this.persons.push(person);
@@ -72,9 +72,9 @@ export class ContactService {
   updateContact(person) {
     return new Promise((resolve, reject) => {
       this.isSaving = true;
-      this.Contact.update(person).then(() => {
+      this.contact.update(person).then(() => {
         this.isSaving = false;
-        this.toaster.pop("success", "Updated " + person.name);
+        // this.toaster.pop("success", "Updated " + person.name);
         resolve();
       })
     })
@@ -83,12 +83,12 @@ export class ContactService {
   removeContact(person) {
     return new Promise((resolve, reject) => {
       this.isDeleting = true;
-      this.Contact.remove(person).then(() => {
+      this.contact.remove(person).then(() => {
         this.isDeleting = false;
         let index = this.persons.indexOf(person);
         this.persons.splice(index, 1);
         this.selectedPerson = null;
-        this.toaster.pop('success', 'Deleted ' + person.name);
+        // this.toaster.pop('success', 'Deleted ' + person.name);
         resolve()
       });
     });
@@ -97,14 +97,14 @@ export class ContactService {
   createContact(person) {
     return new Promise((resolve, reject) => {
       this.isSaving = true;
-      this.Contact.save(person).then(() => {
+      this.contact.save(person).then(() => {
         this.isSaving = false;
         this.selectedPerson = null;
         this.hasMore = true;
         this.page = 1;
         this.persons = [];
         this.loadContacts();
-        this.toaster.pop('success', 'Created ' + person.name);
+        // this.toaster.pop('success', 'Created ' + person.name);
         resolve()
       });
     });
@@ -120,4 +120,4 @@ export class ContactService {
 
 angular
   .module("codecraft")
-  .service("ContactService", ContactService);
+  .factory("ContactService", downgradeInjectable(ContactService));
