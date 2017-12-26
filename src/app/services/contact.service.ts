@@ -4,6 +4,7 @@ import { Inject } from "@angular/core";
 import { downgradeInjectable } from "@angular/upgrade/static";
 
 import { Contact } from "./contact.resource";
+import { Toaster } from "../ajs-upgraded-providers";
 
 export class ContactService {
   private page = 1;
@@ -17,7 +18,8 @@ export class ContactService {
   private sorting = 'name';
   private ordering = 'ASC';
 
-  constructor(@Inject(Contact) private contact: Contact) {
+  constructor(@Inject(Contact) private contact: Contact,
+              @Inject(Toaster) private toaster) {
     this.loadContacts();
   }
 
@@ -74,7 +76,7 @@ export class ContactService {
       this.isSaving = true;
       this.contact.update(person).then(() => {
         this.isSaving = false;
-        // this.toaster.pop("success", "Updated " + person.name);
+        this.toaster.pop("success", "Updated " + person.name);
         resolve();
       })
     })
@@ -88,7 +90,7 @@ export class ContactService {
         let index = this.persons.indexOf(person);
         this.persons.splice(index, 1);
         this.selectedPerson = null;
-        // this.toaster.pop('success', 'Deleted ' + person.name);
+        this.toaster.pop('success', 'Deleted ' + person.name);
         resolve()
       });
     });
@@ -104,7 +106,7 @@ export class ContactService {
         this.page = 1;
         this.persons = [];
         this.loadContacts();
-        // this.toaster.pop('success', 'Created ' + person.name);
+        this.toaster.pop('success', 'Created ' + person.name);
         resolve()
       });
     });
