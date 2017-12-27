@@ -26,17 +26,27 @@ import { HttpClientModule } from '@angular/common/http';
 import { Contact } from "./services/contact.resource";
 import { ContactService } from "./services/contact.service";
 import { toasterServiceProvider } from "./ajs-upgraded-providers";
+import { SearchComponent } from "./components/search.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   imports: [
     BrowserModule,
     UpgradeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule    
   ],
   providers: [
     Contact,
     ContactService,
     toasterServiceProvider
+  ],
+  declarations: [
+    SearchComponent
+  ],
+  entryComponents: [
+    SearchComponent
   ]
 })
 export class AppModule {
