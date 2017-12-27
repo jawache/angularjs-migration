@@ -24,8 +24,8 @@ export let PersonListComponent = {
 		</div >
 	</div >
 
-	<cc-spinner is-loading="$ctrl.contacts.isLoading"
-	            message="Loading..." ></cc-spinner >
+	<cc-spinner [is-loading]="$ctrl.contacts.isLoading"
+	            [message]="'Loading...'" ></cc-spinner >
 </div >
 `,
   bindings: {},
