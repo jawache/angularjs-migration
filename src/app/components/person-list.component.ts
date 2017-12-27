@@ -13,7 +13,7 @@ export let PersonListComponent = {
 			>
 
 		<cc-card ng-repeat="person in $ctrl.contacts.persons track by person.id"
-				     user="person" >
+				     [user]="person" >
 		</cc-card>
 
 	</div >
