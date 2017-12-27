@@ -33,6 +33,7 @@
     "angular-spinner": "^1.0.1",
     "angular-strap": "^2.3.12",
     "angular-ui-router": "^0.4.2",
+    "angular2-infinite-scroll": "^0.3.5",
     "angular2-ladda": "^1.2.3",
     "angularjs-toaster": "^2.1.0",
     "bootstrap": "3.3.2",

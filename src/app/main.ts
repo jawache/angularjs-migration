@@ -24,6 +24,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { HttpClientModule } from '@angular/common/http';
 
 import {LaddaModule} from "angular2-ladda";
+import {InfiniteScrollModule} from 'angular2-infinite-scroll';
 
 import { Contact } from "./services/contact.resource";
 import { ContactService } from "./services/contact.service";
@@ -33,6 +34,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DefaultImagePipe } from "./pipes/default-image.pipe";
 import { CardComponent } from "./components/card.component";
 import { SpinnerComponent } from "./components/spinner.component";
+import { PersonListComponent } from "./components/person-list.component";
 
 @NgModule({
   imports: [
@@ -41,7 +43,8 @@ import { SpinnerComponent } from "./components/spinner.component";
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    LaddaModule   
+    LaddaModule,
+    InfiniteScrollModule
   ],
   providers: [
     Contact,
@@ -52,12 +55,14 @@ import { SpinnerComponent } from "./components/spinner.component";
     SearchComponent,
     DefaultImagePipe,
     CardComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    PersonListComponent
   ],
   entryComponents: [
     SearchComponent,
     CardComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    PersonListComponent
   ]
 })
 export class AppModule {
