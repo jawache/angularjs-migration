@@ -13,6 +13,7 @@ import { ContactService } from "../services/contact.service";
 })
 export class PersonCreateComponent {
     public person = {};
+    public mode: string = 'Create';
 
     constructor(@Inject(ContactService) public contacts: ContactService,
                 @Inject(UIRouterState) private $state) {

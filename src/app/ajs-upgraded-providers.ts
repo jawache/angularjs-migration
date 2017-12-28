@@ -23,3 +23,17 @@ export const uiRouterStateProvider = {
   useFactory: uiRouterStateServiceFactory,
   deps: ['$injector']
 };
+
+
+export const UIRouterStateParams = new InjectionToken("UIRouterStateParams");
+
+export function uiRouterStateParamsServiceFactory(i: any) {
+  return i.get('$stateParams');
+}
+export const uiRouterStateParamsProvider = {
+  provide: UIRouterStateParams,
+  useFactory: uiRouterStateParamsServiceFactory,
+  deps: ['$injector']
+};
+
+

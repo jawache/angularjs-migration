@@ -28,7 +28,7 @@ import {InfiniteScrollModule} from 'angular2-infinite-scroll';
 
 import { Contact } from "./services/contact.resource";
 import { ContactService } from "./services/contact.service";
-import { toasterServiceProvider, uiRouterStateProvider } from "./ajs-upgraded-providers";
+import { toasterServiceProvider, uiRouterStateProvider, uiRouterStateParamsProvider } from "./ajs-upgraded-providers";
 import { SearchComponent } from "./components/search.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DefaultImagePipe } from "./pipes/default-image.pipe";
@@ -36,6 +36,7 @@ import { CardComponent } from "./components/card.component";
 import { SpinnerComponent } from "./components/spinner.component";
 import { PersonListComponent } from "./components/person-list.component";
 import { PersonCreateComponent } from "./components/person-create.component";
+import { PersonEditComponent } from "./components/person-edit.component";
 
 @NgModule({
   imports: [
@@ -51,7 +52,8 @@ import { PersonCreateComponent } from "./components/person-create.component";
     Contact,
     ContactService,
     toasterServiceProvider,
-    uiRouterStateProvider
+    uiRouterStateProvider,
+    uiRouterStateParamsProvider
   ],
   declarations: [
     SearchComponent,
@@ -59,14 +61,16 @@ import { PersonCreateComponent } from "./components/person-create.component";
     CardComponent,
     SpinnerComponent,
     PersonListComponent,
-    PersonCreateComponent
+    PersonCreateComponent,
+    PersonEditComponent
   ],
   entryComponents: [
     SearchComponent,
     CardComponent,
     SpinnerComponent,
     PersonListComponent,
-    PersonCreateComponent
+    PersonCreateComponent,
+    PersonEditComponent
   ]
 })
 export class AppModule {
