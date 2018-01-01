@@ -1,11 +1,9 @@
-import * as angular from 'angular';
-
-import { Inject } from "@angular/core";
-import { downgradeInjectable } from "@angular/upgrade/static";
-
+import { Injectable } from "@angular/core";
 import { Contact } from "./contact.resource";
-import { Toaster } from "../ajs-upgraded-providers";
 
+import { ToasterService } from 'angular2-toaster';
+
+@Injectable()
 export class ContactService {
   private page = 1;
   private hasMore = true;
@@ -18,8 +16,8 @@ export class ContactService {
   public sorting = 'name';
   public ordering = 'ASC';
 
-  constructor(@Inject(Contact) private contact: Contact,
-              @Inject(Toaster) private toaster) {
+  constructor(private contact: Contact,
+              private toaster: ToasterService) {
     this.loadContacts();
   }
 
@@ -119,7 +117,3 @@ export class ContactService {
     }
   }
 }
-
-angular
-  .module("codecraft")
-  .factory("ContactService", downgradeInjectable(ContactService));

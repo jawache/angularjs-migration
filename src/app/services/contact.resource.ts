@@ -1,6 +1,5 @@
 import {HttpClient} from "@angular/common/http";
 import {Injectable, Inject} from "@angular/core";
-import {downgradeInjectable} from '@angular/upgrade/static';
 import 'rxjs/add/operator/toPromise';
 
 export class Contact {

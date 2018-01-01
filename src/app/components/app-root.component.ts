@@ -14,8 +14,8 @@ import { Component } from "@angular/core";
 
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li [routerLinkActive]="['active']">
-            <a [routerLink]="['']">Search</a>
+          <li [routerLinkActive]="['active']" >
+            <a [routerLink]="[{outlets: {primary: 'list', header: 'search'}}]">Search</a>
           </li>
           <li [routerLinkActive]="['active']">
             <a [routerLink]="[{outlets: {primary: 'create', header: null}}]">Create</a>

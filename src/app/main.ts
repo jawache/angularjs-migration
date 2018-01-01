@@ -10,7 +10,7 @@ import 'angularjs-toaster';
 import 'angular-ui-router';
 
 import './app.main';
-import './services';
+// import './services';
 import './filters';
 // import './components';
 
