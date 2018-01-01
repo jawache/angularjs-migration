@@ -25,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {LaddaModule} from "angular2-ladda";
 import {InfiniteScrollModule} from 'angular2-infinite-scroll';
+import {ToasterModule, ToasterService} from 'angular2-toaster';
 
 import { Contact } from "./services/contact.resource";
 import { ContactService } from "./services/contact.service";
@@ -46,14 +47,16 @@ import { PersonEditComponent } from "./components/person-edit.component";
     FormsModule,
     ReactiveFormsModule,
     LaddaModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    ToasterModule
   ],
   providers: [
     Contact,
     ContactService,
     toasterServiceProvider,
     uiRouterStateProvider,
-    uiRouterStateParamsProvider
+    uiRouterStateParamsProvider,
+    ToasterService
   ],
   declarations: [
     SearchComponent,
