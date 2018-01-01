@@ -29,7 +29,6 @@ import {ToasterModule, ToasterService} from 'angular2-toaster';
 
 import { Contact } from "./services/contact.resource";
 import { ContactService } from "./services/contact.service";
-import { toasterServiceProvider, uiRouterStateProvider, uiRouterStateParamsProvider } from "./ajs-upgraded-providers";
 import { SearchComponent } from "./components/search.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { DefaultImagePipe } from "./pipes/default-image.pipe";
@@ -38,6 +37,7 @@ import { SpinnerComponent } from "./components/spinner.component";
 import { PersonListComponent } from "./components/person-list.component";
 import { PersonCreateComponent } from "./components/person-create.component";
 import { PersonEditComponent } from "./components/person-edit.component";
+import { AppRootComponent } from "./components/app-root.component";
 
 @NgModule({
   imports: [
@@ -53,9 +53,6 @@ import { PersonEditComponent } from "./components/person-edit.component";
   providers: [
     Contact,
     ContactService,
-    toasterServiceProvider,
-    uiRouterStateProvider,
-    uiRouterStateParamsProvider,
     ToasterService
   ],
   declarations: [
@@ -65,26 +62,14 @@ import { PersonEditComponent } from "./components/person-edit.component";
     SpinnerComponent,
     PersonListComponent,
     PersonCreateComponent,
-    PersonEditComponent
+    PersonEditComponent,
+    AppRootComponent
   ],
-  entryComponents: [
-    SearchComponent,
-    CardComponent,
-    SpinnerComponent,
-    PersonListComponent,
-    PersonCreateComponent,
-    PersonEditComponent
+  bootstrap: [
+    AppRootComponent
   ]
 })
 export class AppModule {
-  // Override Angular bootstrap so it doesn't do anything
-  ngDoBootstrap() {
-  }
 }
 
-// Bootstrap using the UpgradeModule
-platformBrowserDynamic().bootstrapModule(AppModule).then(platformRef => {
-  console.log("Bootstrapping in Hybrid mode with Angular & AngularJS");
-  const upgrade = platformRef.injector.get(UpgradeModule) as UpgradeModule;
-  upgrade.bootstrap(document.body, ['codecraft']);
-});
+platformBrowserDynamic().bootstrapModule(AppModule);
