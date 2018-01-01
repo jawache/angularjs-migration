@@ -1,5 +1,3 @@
-import * as angular from 'angular';
-
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
@@ -71,9 +69,3 @@ export class SearchComponent {
         });
   }  
 }
-
-angular
-  .module('codecraft')
-  .directive("search", downgradeComponent({
-    component: SearchComponent
-  }));

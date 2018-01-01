@@ -1,5 +1,3 @@
-import * as angular from 'angular';
-
 import { Inject, Component } from "@angular/core";
 import { downgradeComponent } from "@angular/upgrade/static";
 
@@ -38,9 +36,3 @@ export class PersonListComponent {
 	constructor( @Inject(ContactService) public contacts: ContactService) {
 	}
 }
-
-angular
-    .module('codecraft')
-    .directive("personList", downgradeComponent({
-        component: PersonListComponent
-    }));

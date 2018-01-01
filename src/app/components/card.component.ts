@@ -1,5 +1,3 @@
-import * as angular from 'angular';
-
 import { Component, Input, Inject } from "@angular/core";
 import { downgradeComponent } from "@angular/upgrade/static";
 
@@ -67,11 +65,3 @@ export class CardComponent {
     })
   }
 }
-
-angular
-  .module("codecraft")
-  .directive('ccCard', downgradeComponent({
-    component: CardComponent,
-    inputs: ['user']
-  }));
-

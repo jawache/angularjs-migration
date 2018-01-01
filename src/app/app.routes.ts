@@ -1,36 +1,14 @@
-import * as angular from 'angular';
+import {Routes} from "@angular/router";
 
-angular
-  .module("codecraft")
-  .config(function($stateProvider, $urlRouterProvider) {
-    $stateProvider
-      .state("list", {
-        url: "/",
-        views: {
-          main: {
-            template: "<person-list></person-list>",
-          },
-          search: {
-            template: "<search></search>",
-          }
-        }
-      })
-      .state("edit", {
-        url: "/edit/:email",
-        views: {
-          main: {
-            template: "<person-edit></person-edit>",
-          }
-        }
-      })
-      .state("create", {
-        url: "/create",
-        views: {
-          main: {
-            template: "<person-create></person-create>",
-          }
-        }
-      });
+import {SearchComponent} from "./components/search.component";
+import {PersonListComponent} from "./components/person-list.component";
+import {PersonCreateComponent} from "./components/person-create.component";
+import {PersonEditComponent} from "./components/person-edit.component";
 
-    $urlRouterProvider.otherwise("/");
-  });
+export const routes: Routes = [
+  {path: '', redirectTo: '/list(header:search)', pathMatch: 'full'},
+  {path: 'list', component: PersonListComponent},
+  {path: 'search', component: SearchComponent, outlet: 'header'},
+  {path: 'create', component: PersonCreateComponent},
+  {path: 'edit/:email', component: PersonEditComponent},
+];

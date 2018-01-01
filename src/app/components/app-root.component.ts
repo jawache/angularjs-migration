@@ -10,16 +10,15 @@ import { Component } from "@angular/core";
         </a>
       </div>
 
-      <div ui-view="search">
-      </div>
+      <router-outlet name="header"></router-outlet>
 
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li ui-sref-active="active">
-            <a ui-sref="list">Search</a>
+          <li [routerLinkActive]="['active']">
+            <a [routerLink]="['']">Search</a>
           </li>
-          <li ui-sref-active="active">
-            <a ui-sref="create">Create</a>
+          <li [routerLinkActive]="['active']">
+            <a [routerLink]="[{outlets: {primary: 'create', header: null}}]">Create</a>
           </li>
         </ul>
       </div>
@@ -33,8 +32,7 @@ import { Component } from "@angular/core";
 
     <div class="row">
 
-      <div ui-view="main">
-      </div>
+      <router-outlet></router-outlet>
 
     </div>
   </div>    

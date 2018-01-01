@@ -12,8 +12,7 @@ import 'angular-ui-router';
 import './app.main';
 import './services';
 import './filters';
-import './components';
-import './app.routes';
+// import './components';
 
 import './polyfills.ts';
 
@@ -22,6 +21,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from "@angular/router";
 
 import {LaddaModule} from "angular2-ladda";
 import {InfiniteScrollModule} from 'angular2-infinite-scroll';
@@ -39,6 +39,8 @@ import { PersonCreateComponent } from "./components/person-create.component";
 import { PersonEditComponent } from "./components/person-edit.component";
 import { AppRootComponent } from "./components/app-root.component";
 
+import {routes} from './app.routes'
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { AppRootComponent } from "./components/app-root.component";
     ReactiveFormsModule,
     LaddaModule,
     InfiniteScrollModule,
-    ToasterModule
+    ToasterModule,
+    RouterModule.forRoot(routes, {useHash: true})
   ],
   providers: [
     Contact,
