@@ -6,4 +6,5 @@ tmp
 .DS_Store
 .idea
 src/libs
+src/dist
 data/db.json  
