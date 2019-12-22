@@ -1,16 +1,5 @@
 angular
   .module("codecraft")
-  .factory("Contact", function($resource) {
-    return $resource(
-      "http://localhost:3000/contacts/:id",
-      {id: "@id"},
-      {
-        update: {
-          method: "PUT"
-        }
-      }
-    );
-  })
   .factory("ContactService", function(Contact, $rootScope, $q, toaster) {
     var self = {
       getPerson: function(email) {
