@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "cp ./data/orig-db.json ./data/db.json && json-server --watch ./data/db.json",
+    "server": "copy \".\\data\\orig-db.json\" \".\\data\\db.json\" && json-server --watch \".\\data\\db.json\"",
     "setup": "bower install",
     "start": "cd src && serve",
     "build": "rimraf src/dist && webpack --bail --progress --profile"
@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "angular": "^1.8.0",
-    "angular-animate": "1.4.0",
+    "angular-animate": "1.8.0",
     "angular-auto-validate": "^1.19.0",
     "angular-ladda": "^0.4.3",
     "angular-resource": "1.4.0",
