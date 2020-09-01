@@ -1,4 +1,6 @@
 import * as angular from 'angular';
+import * as _ from 'lodash'
+import { ContactDB, ContactRouteParams } from './contact.resource';
 
 export interface IContact {
     id: number,
@@ -18,16 +20,10 @@ export interface IContact {
 
 angular
     .module( "codecraft" )
-    .factory( "ContactService", function ( Contact, $rootScope, $q, toaster ) {
-        var self = {
-            getPerson: function ( email ) {
-                console.log( email );
-                for ( var i = 0; i < self.persons.length; i++ ) {
-                    var obj = self.persons[ i ];
-                    if ( obj.email == email ) {
-                        return obj;
-                    }
-                }
+    .factory( "ContactService", function ( ContactDB: ContactDB, $rootScope, $q, toaster ) {
+        const self = {
+            getPerson: ( email: string ): IContact => {
+                return _.find(self.persons, (person: IContact) => person.email == email)
             },
             page: 1,
             hasMore: true,
@@ -50,72 +46,57 @@ angular
                 self.persons = [];
                 self.loadContacts();
             },
-            loadContacts: function () {
+            loadContacts: async function () {
                 if ( self.hasMore && !self.isLoading ) {
                     self.isLoading = true;
 
-                    var params = {
+                    const params: ContactRouteParams = {
                         _page: self.page,
                         _sort: self.sorting,
                         _order: self.ordering,
                         q: self.search
                     };
 
-                    Contact.query( params, function ( data ) {
-                        console.debug( data );
-                        angular.forEach( data, function ( person ) {
-                            self.persons.push( new Contact( person ) );
-                        } );
+                    const response: angular.IHttpResponse<IContact[]> = await ContactDB.query( params )
+                    self.persons.push(...response.data)
 
-                        if ( data.length === 0 ) {
-                            self.hasMore = false;
-                        }
-                        self.isLoading = false;
-                    } );
+                    if ( response.data.length === 0 ) {
+                        self.hasMore = false;
+                    }
+                    self.isLoading = false;
+                    
                 }
             },
-            loadMore: function () {
+            loadMore: (): void => {
                 if ( self.hasMore && !self.isLoading ) {
                     self.page += 1;
                     self.loadContacts();
                 }
             },
-            updateContact: function ( person ) {
-                var d = $q.defer();
+            updateContact: async ( person ): Promise<void> => {
                 self.isSaving = true;
-                person.$update().then( function () {
-                    self.isSaving = false;
-                    toaster.pop( "success", "Updated " + person.name );
-                    d.resolve();
-                } );
-                return d.promise;
+                await ContactDB.update(person)
+                self.isSaving = false;
+                toaster.pop( "success", "Updated " + person.name );
             },
-            removeContact: function ( person ) {
-                var d = $q.defer();
+            removeContact: async ( person ): Promise<void> => {
                 self.isDeleting = true;
-                var name = person.name;
-                person.$remove().then( function () {
-                    self.isDeleting = false;
-                    var index = self.persons.indexOf( person );
-                    self.persons.splice( index, 1 );
-                    toaster.pop( "success", "Deleted " + name );
-                    d.resolve();
-                } );
-                return d.promise;
+                const name: string = person.name;
+                await ContactDB.remove(person)
+                self.isDeleting = false;
+                const index: number = self.persons.indexOf( person );
+                self.persons.splice( index, 1 );
+                toaster.pop( "success", "Deleted " + name );
             },
-            createContact: function ( person ) {
-                var d = $q.defer();
+            createContact: async ( person ): Promise<void> => {
                 self.isSaving = true;
-                Contact.save( person ).$promise.then( function () {
-                    self.isSaving = false;
-                    self.hasMore = true;
-                    self.page = 1;
-                    self.persons = [];
-                    self.loadContacts();
-                    toaster.pop( "success", "Created " + person.name );
-                    d.resolve();
-                } );
-                return d.promise;
+                await ContactDB.save( person )
+                self.isSaving = false;
+                self.hasMore = true;
+                self.page = 1;
+                self.persons = [];
+                self.loadContacts();
+                toaster.pop( "success", "Created " + person.name );
             }
         };
 
