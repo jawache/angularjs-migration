@@ -16,16 +16,19 @@ class PersonEditController implements IPersonEditController, angular.IController
                  private $state,
                  $stateParams: { email: string } ) {
         this.person = ContactService.getPerson( $stateParams.email )
+        if (!this.person) {
+            this.$state.go( 'list' )
+        }
     }
 
     public async save() {
         await this.ContactService.updateContact( this.person )
-        this.$state.go( "list" );
+        this.$state.go( 'list' );
     }
 
     public async remove() {
         await this.ContactService.updateContact( this.person )
-        this.$state.go( "list" );
+        this.$state.go( 'list' );
     }
 }
 
