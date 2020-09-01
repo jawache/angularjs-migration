@@ -11,8 +11,7 @@ angular
             template: "<person-list></person-list>"
           },
           search: {
-            templateUrl: "templates/searchform.html",
-            controller: "SearchController"
+            template: "<search></search>"
           }
         }
       })
