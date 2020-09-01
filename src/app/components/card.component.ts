@@ -10,7 +10,7 @@ interface ICardController {
 class CardController implements ICardController, angular.IController {
 
     private isDeleting: boolean
-    private user: IContact
+    public user: IContact
 
     constructor(private ContactService) {
         this.isDeleting = false

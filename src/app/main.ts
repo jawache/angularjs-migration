@@ -11,9 +11,8 @@ import 'angular-ui-router';
 
 import './app.main';
 import './services';
-import './directives';
+import './components';
 import './filters';
-import './controllers';
 import './app.routes';
 
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
