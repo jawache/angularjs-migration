@@ -5,7 +5,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
 
-        mode: {{mode}}
+        {{mode}}
 
         <div class="pull-right">
           <button class="btn btn-primary btn-sm"
@@ -23,7 +23,8 @@
       </div>
       <div class="panel-body">
 
-        <ng-include src="'templates/form.html'"></ng-include>
+        <ng-include src="'templates/form.html'"
+                    onload="$ctrl = personEdit"></ng-include>
 
       </div>
     </div>

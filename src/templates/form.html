@@ -1,10 +1,11 @@
 <div class="form-group">
+
   <label class="col-sm-2 control-label">Name</label>
   <div class="col-sm-10">
     <input type="text"
            class="form-control"
            name="name"
-           ng-model="personEdit.person.name"
+           ng-model="$ctrl.person.name"
            required />
   </div>
 </div>
@@ -14,7 +15,7 @@
     <input type="email"
            name="email"
            class="form-control"
-           ng-model="personEdit.person.email"
+           ng-model="$ctrl.person.email"
            required />
   </div>
 </div>
@@ -24,7 +25,7 @@
     <input type="text"
            class="form-control"
            name="photo"
-           ng-model="personEdit.person.photo" />
+           ng-model="$ctrl.person.photo" />
   </div>
 </div>
 <div class="form-group">
@@ -33,7 +34,7 @@
 
     <select name="sex"
             class="form-control"
-            ng-model="personEdit.person.sex"
+            ng-model="$ctrl.person.sex"
             id="">
       <option value="M">Male</option>
       <option value="F">Female</option>
@@ -46,7 +47,7 @@
     <input type="text"
            name="bday"
            class="form-control"
-           ng-model="personEdit.person.birthdate "
+           ng-model="$ctrl.person.birthdate "
            bs-datepicker />
   </div>
 
@@ -57,7 +58,7 @@
     <input type="tel"
            name="phone"
            class="form-control"
-           ng-model="personEdit.person.phonenumber" />
+           ng-model="$ctrl.person.phonenumber" />
   </div>
 
 </div>
@@ -67,7 +68,7 @@
     <input type="text"
            name="address"
            class="form-control"
-           ng-model="personEdit.person.address" />
+           ng-model="$ctrl.person.address" />
   </div>
 
 </div>
@@ -78,7 +79,7 @@
     <input type="text"
            name="city"
            class="form-control"
-           ng-model="personEdit.person.city" />
+           ng-model="$ctrl.person.city" />
   </div>
 
 </div>
@@ -88,7 +89,7 @@
     <input type="text"
            name="country"
            class="form-control"
-           ng-model="personEdit.person.country" />
+           ng-model="$ctrl.person.country" />
   </div>
 
 </div>

@@ -29,8 +29,7 @@ angular
         url: "/create",
         views: {
           main: {
-            templateUrl: "templates/create.html",
-            controller: "PersonCreateController"
+            template: "<person-create></person-create>"
           }
         }
       });

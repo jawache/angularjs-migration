@@ -15,10 +15,7 @@ class PersonEditController implements IPersonEditController, angular.IController
     constructor( private ContactService,
                  private $state,
                  $stateParams: { email: string } ) {
-        console.log('ContactService:', ContactService)
-        console.log('stateParams:', $stateParams)
         this.person = ContactService.getPerson( $stateParams.email )
-        console.log('this.person:', this.person)
     }
 
     public async save() {
@@ -43,10 +40,6 @@ class PersonEditComponent implements angular.IComponentOptions {
         this.controller = PersonEditController
     }
 }
-
-
-let newPersonEditComponent = new PersonEditComponent()
-console.log('newPersonEditComponent:', newPersonEditComponent)
 
 angular
     .module( 'codecraft' )
