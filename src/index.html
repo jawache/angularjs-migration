@@ -1,56 +1,56 @@
-<!DOCTYPE html >
+<!DOCTYPE html>
 <html lang="en" ng-app="codecraft">
 
 <head>
-  <title>Contacts</title>
-  <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/paper.css" rel="stylesheet">
-  <link href="libs/bootstrap-additions/dist/bootstrap-additions.min.css" rel="stylesheet">
-  <link href="libs/AngularJS-Toaster/toaster.min.css" rel="stylesheet">
-  <link href="libs/ladda/dist/ladda-themeless.min.css" rel="stylesheet">
-  <link href="libs/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="css/main.css" rel="stylesheet">
+    <title>Contacts</title>
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/paper.css" rel="stylesheet">
+    <link href="/node_modules/bootstrap-additions/dist/bootstrap-additions.min.css" rel="stylesheet">
+    <link href="/node_modules/AngularJS-Toaster/toaster.min.css" rel="stylesheet">
+    <link href="/node_modules/ladda/dist/ladda-themeless.min.css" rel="stylesheet">
+    <link href="/node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Contacts
-        </a>
-      </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Contacts
+                </a>
+            </div>
 
-      <div ui-view="search">
-      </div>
+            <div ui-view="search">
+            </div>
 
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li ui-sref-active="active">
-            <a ui-sref="list">Search</a>
-          </li>
-          <li ui-sref-active="active">
-            <a ui-sref="create">Create</a>
-          </li>
-        </ul>
-      </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li ui-sref-active="active">
+                        <a ui-sref="list">Search</a>
+                    </li>
+                    <li ui-sref-active="active">
+                        <a ui-sref="create">Create</a>
+                    </li>
+                </ul>
+            </div>
 
+        </div>
+    </nav>
+
+    <div class="container main-content">
+
+        <toaster-container></toaster-container>
+
+        <div class="row">
+
+            <div ui-view="main">
+            </div>
+
+        </div>
     </div>
-  </nav>
 
-  <div class="container main-content">
-
-    <toaster-container></toaster-container>
-
-    <div class="row">
-
-      <div ui-view="main">
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Angular -->
-  <script src="dist/bundle.js"></script>
+    <!-- Angular -->
+    <script src="../dist/bundle.js"></script>
 
 </body>
 

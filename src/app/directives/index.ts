@@ -1,2 +1,2 @@
-import "./card.directive";
+import "../components/card.component";
 import "./spinner.directive";
