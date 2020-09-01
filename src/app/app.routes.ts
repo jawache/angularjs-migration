@@ -21,8 +21,7 @@ angular
         url: "/edit/:email",
         views: {
           main: {
-            templateUrl: "templates/edit.html",
-            controller: "PersonEditController"
+            template: "<person-edit></person-edit>"
           }
         }
       })

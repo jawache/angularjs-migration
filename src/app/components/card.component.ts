@@ -1,6 +1,8 @@
 import * as angular from 'angular';
 import { IContact } from '../services/contact.service';
 
+const COMPONENT_NAME: string = 'ccCard'
+
 interface ICardController {
     deleteUser: () => Promise<void>
 }
@@ -11,7 +13,6 @@ class CardController implements ICardController, angular.IController {
     private user: IContact
 
     constructor(private ContactService) {
-        // this.user = user
         this.isDeleting = false
     }
 
@@ -21,8 +22,6 @@ class CardController implements ICardController, angular.IController {
         this.isDeleting = false
     }
 }
-
-const COMPONENT_NAME: string = 'ccCard'
 
 class CardComponent implements angular.IComponentOptions {
     public templateUrl: string
