@@ -6,23 +6,24 @@
             </div>
             <div class="col-md-8">
                 <h4>{{ ccCard.user.name }}
-                    <i class="fa"
-                        ng-class="{'fa-female':ccCard.user.sex == 'F', 'fa-male': ccCard.user.sex == 'M'}"></i>
+                    <i ng-if="ccCard.user.sex == 'F'"
+                       class="fas fa-female"></i>
+                    <i ng-if="ccCard.user.sex == 'M'"
+                       class="fas fa-male"></i>
                 </h4>
                 <small>{{ ccCard.user.city }}, {{ ccCard.user.country }}
                     <i class="fa fa-map-marker"></i>
                 </small>
                 <p>
-                    <i class="fa fa-envelope-o"></i>
+                    <i class="fas fa-envelope"></i>
                     {{ ccCard.user.email }}
                     <br />
                     <i class="fa fa-gift"></i>
                     {{ ccCard.user.birthdate | date:"longDate"}}
                 </p>
 
-
                 <a class="btn btn-default btn-sm" ui-sref="edit({email:ccCard.user.email})">
-                    <i class="fa fa-pencil"></i>
+                    <i class="fa fa-pencil-alt"></i>
                     &nbsp;Edit
                 </a>
 

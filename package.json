@@ -6,7 +6,7 @@
   "scripts": {
     "server": "copy \".\\data\\orig-db.json\" \".\\data\\db.json\" && json-server --watch \".\\data\\db.json\"",
     "setup": "npm install",
-    "start": "cd src && serve",
+    "start": "npm run build && cd src && serve",
     "build": "rimraf src/dist && webpack --bail --progress --profile",
     "update": "ncu -u && npm update && npm install"
   },
@@ -31,6 +31,10 @@
     "popper.js": "^1.16.1"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-brands-svg-icons": "^5.14.0",
+    "@fortawesome/free-regular-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@types/angular": "^1.7.2",
     "@types/webpack": "^4.41.21",
     "bower": "^1.8.8",

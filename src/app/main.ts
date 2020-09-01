@@ -15,3 +15,9 @@ import './directives';
 import './filters';
 import './controllers';
 import './app.routes';
+
+import { library, dom } from "@fortawesome/fontawesome-svg-core";
+import { faMapMarker, faGift, faEnvelope, faPencilAlt, faTrash, faFemale, faMale } from "@fortawesome/free-solid-svg-icons";
+
+library.add( faMale, faFemale, faMapMarker, faGift, faEnvelope, faPencilAlt, faTrash );
+dom.watch();
