@@ -8,8 +8,7 @@ angular
         url: "/",
         views: {
           main: {
-            templateUrl: "templates/list.html",
-            controller: "PersonListController"
+            template: "<person-list></person-list>"
           },
           search: {
             templateUrl: "templates/searchform.html",

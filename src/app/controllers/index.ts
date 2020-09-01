@@ -1,4 +1,4 @@
 import "../components/person-create.component";
 import "../components/person-edit.component";
-import "./person-list.controller";
+import "../components/person-list.component";
 import "./search.controller";

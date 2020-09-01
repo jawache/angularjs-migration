@@ -1,22 +1,22 @@
 <div class="col-md-12">
 
   <div class="row"
-       infinite-scroll="contacts.loadMore()"
+       infinite-scroll="personList.ContactService.loadMore()"
        infinite-scroll-immediate-check="false"
        infinite-scroll-distance="1">
 
-    <cc-card ng-repeat="person in contacts.persons"
+    <cc-card ng-repeat="person in personList.ContactService.persons"
              user="person">
     </cc-card>
 
   </div>
 
-  <div ng-show="contacts.persons.length == 0 && !contacts.isLoading">
+  <div ng-show="personList.ContactService.persons.length == 0 && !personList.ContactService.isLoading">
     <div class="alert alert-info">
-      <p class="text-center">No results found for search term '{{ contacts.search }}'</p>
+      <p class="text-center">No results found for search term '{{ personList.ContactService.search }}'</p>
     </div>
   </div>
 
-  <cc-spinner is-loading="contacts.isLoading"
+  <cc-spinner is-loading="personList.ContactService.isLoading"
               message="Loading..."></cc-spinner>
 </div>
