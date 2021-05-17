@@ -1,13 +1,10 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import {Pipe, PipeTransform} from "@angular/core";
 
-@Pipe({name: 'defaultImage'})
+@Pipe({name: "defaultImage"})
 export class DefaultImagePipe implements PipeTransform {
-  transform(input, def) {
-    if (!def) {
-      def = "/img/avatar.png"
-    }
+  transform(input, def= "/img/avatar.png") {
     if (!input) {
-      return def
+      return def;
     }
     return input;
   }

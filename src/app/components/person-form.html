@@ -1,6 +1,6 @@
 <div class="col-md-8 col-md-offset-2">
-  <form class="form-horizontal"
-        (ngSubmit)="save()"
+  <form (ngSubmit)="save()"
+        class="form-horizontal"
         novalidate>
 
     <div class="panel panel-default">
@@ -9,16 +9,16 @@
         {{mode}}
 
         <div class="pull-right">
-          <button class="btn btn-primary btn-sm"
-                  [ladda]="contacts.isSaving"
+          <button [ladda]="contacts.isSaving"
+                  class="btn btn-primary btn-sm"
                   type="submit">
             <span>Save</span>
           </button>
 
-          <button class="btn btn-danger btn-sm"
-                  [ladda]="contacts.isDeleting"
+          <button (click)="remove()"
                   *ngIf="mode === 'Edit'"
-                  (click)="remove()">Delete
+                  [ladda]="contacts.isDeleting"
+                  class="btn btn-danger btn-sm">Delete
           </button>
         </div>
         <div class="clearfix"></div>
@@ -29,30 +29,30 @@
         <div class="form-group">
           <label class="col-sm-2 control-label">Name</label>
           <div class="col-sm-10">
-            <input type="text"
+            <input [(ngModel)]="person.name"
                    class="form-control"
                    name="name"
-                   [(ngModel)]="person.name"
-                   required />
+                   required
+                   type="text" />
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label">Email</label>
           <div class="col-sm-10">
-            <input type="email"
-                   name="email"
+            <input [(ngModel)]="person.email"
                    class="form-control"
-                   [(ngModel)]="person.email"
-                   required />
+                   name="email"
+                   required
+                   type="email" />
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-2 control-label">Photo</label>
           <div class="col-sm-10">
-            <input type="text"
+            <input [(ngModel)]="person.photo"
                    class="form-control"
                    name="photo"
-                   [(ngModel)]="person.photo"
+                   type="text"
             />
           </div>
         </div>
@@ -60,10 +60,10 @@
           <label class="col-sm-2 control-label">Sex</label>
           <div class="col-sm-10">
 
-            <select name="sex"
+            <select [(ngModel)]="person.sex"
                     class="form-control"
-                    [(ngModel)]="person.sex"
-                    id="">
+                    id=""
+                    name="sex">
               <option value="M">Male</option>
               <option value="F">Female</option>
             </select>
@@ -72,10 +72,10 @@
         <div class="form-group">
           <label class="col-sm-2 control-label">Birthday</label>
           <div class="col-sm-10">
-            <input type="date"
-                   name="bday"
+            <input [(ngModel)]="person.birthdate "
                    class="form-control"
-                   [(ngModel)]="person.birthdate "
+                   name="bday"
+                   type="date"
             />
           </div>
 
@@ -83,10 +83,10 @@
         <div class="form-group">
           <label class="col-sm-2 control-label">Phone</label>
           <div class="col-sm-10">
-            <input type="tel"
-                   name="phone"
+            <input [(ngModel)]="person.phonenumber"
                    class="form-control"
-                   [(ngModel)]="person.phonenumber"
+                   name="phone"
+                   type="tel"
             />
           </div>
 
@@ -94,10 +94,10 @@
         <div class="form-group">
           <label class="col-sm-2 control-label">Address</label>
           <div class="col-sm-10">
-            <input type="text"
-                   name="address"
+            <input [(ngModel)]="person.address"
                    class="form-control"
-                   [(ngModel)]="person.address"
+                   name="address"
+                   type="text"
             />
           </div>
 
@@ -106,10 +106,10 @@
         <div class="form-group">
           <label class="col-sm-2 control-label">City</label>
           <div class="col-sm-10">
-            <input type="text"
-                   name="city"
+            <input [(ngModel)]="person.city"
                    class="form-control"
-                   [(ngModel)]="person.city"
+                   name="city"
+                   type="text"
             />
           </div>
 
@@ -117,10 +117,10 @@
         <div class="form-group">
           <label class="col-sm-2 control-label">Country</label>
           <div class="col-sm-10">
-            <input type="text"
-                   name="country"
+            <input [(ngModel)]="person.country"
                    class="form-control"
-                   [(ngModel)]="person.country"
+                   name="country"
+                   type="text"
             />
           </div>
 

@@ -1,6 +1,6 @@
 import {HttpClient} from "@angular/common/http";
-import {Injectable, Inject} from "@angular/core";
-import 'rxjs/add/operator/toPromise';
+import {Inject} from "@angular/core";
+import "rxjs/add/operator/toPromise";
 
 export class Contact {
   private apiRoot: string = "http://localhost:3000/contacts";
@@ -8,12 +8,12 @@ export class Contact {
   constructor(@Inject(HttpClient) private http: HttpClient) {
   }
 
-  query(params: { [key: string]: string }): Promise<Array<any>> {
-    return this.http.get<Array<any>>(this.apiRoot, { params }).toPromise();
+  query(params: {[key: string]: string}): Promise<Array<any>> {
+    return this.http.get<Array<any>>(this.apiRoot, {params}).toPromise();
   }
 
-  get(id, params?: { [key: string]: string }) {
-    return this.http.get(this.apiRoot + '/' + id, { params }).toPromise();
+  get(id, params?: {[key: string]: string}) {
+    return this.http.get(this.apiRoot + "/" + id, {params}).toPromise();
   }
 
   save(data: any) {
@@ -21,10 +21,10 @@ export class Contact {
   }
 
   update(data: any) {
-    return this.http.put(this.apiRoot + '/' + data.id, data).toPromise();
+    return this.http.put(this.apiRoot + "/" + data.id, data).toPromise();
   }
 
   remove(data: any) {
-    return this.http.delete(this.apiRoot + '/' + data.id).toPromise();
+    return this.http.delete(this.apiRoot + "/" + data.id).toPromise();
   }
 }
