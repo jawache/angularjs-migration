@@ -1,20 +1,20 @@
-import { Injectable } from "@angular/core";
-import { Contact } from "./contact.resource";
+import {Injectable} from "@angular/core";
+import {Contact} from "./contact.resource";
 
-import { ToasterService } from 'angular2-toaster';
+import {ToasterService} from "angular2-toaster";
 
 @Injectable()
 export class ContactService {
+  public search = "";
+  public sorting = "name";
+  public ordering = "ASC";
   private page = 1;
   private hasMore = true;
-  private isLoading = false;
-  private isSaving = false;
-  private isDeleting = false;
+  isLoading = false;
+  isSaving = false;
+  isDeleting = false;
   private selectedPerson = null;
-  private persons = [];
-  public search = "";
-  public sorting = 'name';
-  public ordering = 'ASC';
+  persons = [];
 
   constructor(private contact: Contact,
               private toaster: ToasterService) {
@@ -76,8 +76,8 @@ export class ContactService {
         this.isSaving = false;
         this.toaster.pop("success", "Updated " + person.name);
         resolve();
-      })
-    })
+      });
+    });
   }
 
   removeContact(person) {
@@ -88,8 +88,8 @@ export class ContactService {
         let index = this.persons.indexOf(person);
         this.persons.splice(index, 1);
         this.selectedPerson = null;
-        this.toaster.pop('success', 'Deleted ' + person.name);
-        resolve()
+        this.toaster.pop("success", "Deleted " + person.name);
+        resolve();
       });
     });
   }
@@ -104,8 +104,8 @@ export class ContactService {
         this.page = 1;
         this.persons = [];
         this.loadContacts();
-        this.toaster.pop('success', 'Created ' + person.name);
-        resolve()
+        this.toaster.pop("success", "Created " + person.name);
+        resolve();
       });
     });
   }
