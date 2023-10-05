@@ -9,7 +9,7 @@ angular
       scope: {
         user: "="
       },
-      controller: function($scope, ContactService) {
+      controller: ["$scope", "ContactService", function($scope, ContactService) {
         $scope.isDeleting = false;
         $scope.deleteUser = function() {
           $scope.isDeleting = true;
@@ -17,6 +17,6 @@ angular
             $scope.isDeleting = false;
           });
         };
-      }
+      }]
     };
   });
