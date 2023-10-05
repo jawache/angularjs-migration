@@ -1,6 +1,8 @@
+import * as angular from "angular";
+
 angular
   .module("codecraft")
-  .factory("ContactService", function(Contact, $rootScope, $q, toaster) {
+  .factory("ContactService", ["Contact", "$rootScope", "$q", "toaster", function(Contact, $rootScope, $q, toaster) {
     var self = {
       getPerson: function(email) {
         console.log(email);
@@ -14,6 +16,7 @@ angular
       page: 1,
       hasMore: true,
       isLoading: false,
+      isDeleting: false,
       isSaving: false,
       persons: [],
       search: null,
@@ -74,7 +77,7 @@ angular
       removeContact: function(person) {
         var d = $q.defer();
         self.isDeleting = true;
-        name = person.name;
+        var name = person.name;
         person.$remove().then(function() {
           self.isDeleting = false;
           var index = self.persons.indexOf(person);
@@ -103,4 +106,4 @@ angular
     self.loadContacts();
 
     return self;
-  });
+  }]);

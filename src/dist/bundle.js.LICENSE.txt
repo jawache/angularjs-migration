@@ -1,0 +1,75 @@
+/*!
+ * Ladda
+ * http://lab.hakim.se/ladda
+ * MIT licensed
+ *
+ * Copyright (C) 2018 Hakim El Hattab, http://hakim.se
+ */
+
+/*! ./Config/UsSpinnerConfig */
+
+/*! ./Constants/SpinJSSpinner */
+
+/*! ./Directives/AngularSpinner */
+
+/*! ./Services/UsSpinnerService */
+
+/*! angular */
+
+/*! angular-ladda 0.4.3 */
+
+/*! spin.js */
+
+/*!**************************!*\
+  !*** external "angular" ***!
+  \**************************/
+
+/*!***************************!*\
+  !*** ./~/spin.js/spin.js ***!
+  \***************************/
+
+/*!********************************!*\
+  !*** ./src/angular-spinner.ts ***!
+  \********************************/
+
+/*!***************************************!*\
+  !*** ./src/Config/UsSpinnerConfig.ts ***!
+  \***************************************/
+
+/*!****************************************!*\
+  !*** ./src/Constants/SpinJSSpinner.ts ***!
+  \****************************************/
+
+/*!******************************************!*\
+  !*** ./src/Directives/AngularSpinner.ts ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./src/Services/UsSpinnerService.ts ***!
+  \******************************************/
+
+/**
+ * @license AngularJS v1.4.0
+ * (c) 2010-2015 Google, Inc. http://angularjs.org
+ * License: MIT
+ */
+
+/**
+ * State-based routing for AngularJS
+ * @version v0.4.3
+ * @link http://angular-ui.github.com/
+ * @license MIT License, http://www.opensource.org/licenses/MIT
+ */
+
+/**
+ * angular-strap
+ * @version v2.3.12 - 2017-01-26
+ * @link http://mgcrea.github.io/angular-strap
+ * @author Olivier Louvignes <olivier@mg-crea.com> (https://github.com/mgcrea)
+ * @license MIT License, http://www.opensource.org/licenses/MIT
+ */
+
+/**!
+ * AngularJS Ladda directive
+ * @author Chungsub Kim <subicura@subicura.com>
+ */

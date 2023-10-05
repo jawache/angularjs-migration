@@ -1,3 +1,5 @@
+import * as angular from "angular";
+
 angular
   .module("codecraft", [
     "ngResource",
@@ -10,7 +12,11 @@ angular
     "ngAnimate",
     "ui.router"
   ])
-  .config(function(
+  .config(["$httpProvider",
+    "$resourceProvider",
+    "laddaProvider",
+    "$datepickerProvider",
+    function(
     $httpProvider,
     $resourceProvider,
     laddaProvider,
@@ -23,4 +29,4 @@ angular
       dateFormat: "d/M/yyyy",
       autoclose: true
     });
-  });
+  }]);

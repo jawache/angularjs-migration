@@ -1,6 +1,11 @@
+import * as angular from "angular";
+
 angular
   .module("codecraft")
-  .controller("PersonEditController", function(
+  .controller("PersonEditController", ["$scope",
+    "$stateParams",
+    "$state",
+    "ContactService", function(
     $scope,
     $stateParams,
     $state,
@@ -20,4 +25,4 @@ angular
         $state.go("list");
       });
     };
-  });
+  }]);

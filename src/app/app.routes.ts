@@ -1,6 +1,8 @@
+import * as angular from "angular";
+
 angular
   .module("codecraft")
-  .config(function($stateProvider, $urlRouterProvider) {
+  .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state("list", {
         url: "/",
@@ -35,4 +37,4 @@ angular
       });
 
     $urlRouterProvider.otherwise("/");
-  });
+  }]);
