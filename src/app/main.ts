@@ -11,7 +11,6 @@ import 'angular-ui-router';
 
 import './app.main';
 import './app.routes';
-import './controllers/index';
 import './services/index';
-import './directives/index';
 import './filters/index';
+import './components/index';

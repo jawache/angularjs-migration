@@ -1,6 +1,6 @@
 <div class="col-md-8 col-md-offset-2">
   <form class="form-horizontal"
-        ng-submit="save()"
+        ng-submit="$ctrl.save()"
         novalidate>
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -9,13 +9,13 @@
 
         <div class="pull-right">
           <button class="btn btn-primary btn-sm"
-                  ladda="contacts.isSaving"
+                  ladda="$ctrl.contacts.isSaving"
                   type="submit">Save
           </button>
 
           <button class="btn btn-danger btn-sm"
-                  ladda="contacts.isDeleting"
-                  ng-click="remove()">Delete
+                  ladda="$ctrl.contacts.isDeleting"
+                  ng-click="$ctrl.remove()">Delete
           </button>
         </div>
         <div class="clearfix"></div>
