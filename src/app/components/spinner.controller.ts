@@ -8,8 +8,7 @@ let SpinnerComponent = {
     message: "@"
   },
   controller: class SpinnerController {
-    private isLoading: boolean;
-    private message: string;
+    
   }
 }
 
