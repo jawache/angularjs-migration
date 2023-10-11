@@ -2,7 +2,7 @@ import * as angular from "angular";
 
 angular
   .module("codecraft")
-  .config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
+  .config(["$stateProvider", "$urlRouterProvider", function($stateProvider: any, $urlRouterProvider: any) {
     $stateProvider
       .state("list", {
         url: "/",

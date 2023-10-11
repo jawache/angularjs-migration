@@ -1,4 +1,5 @@
 import * as angular from "angular";
+import { Contact } from "./contact.resource";
 
 export class ContactService {
   private Contact;
@@ -10,20 +11,20 @@ export class ContactService {
   private isDeleting = false;
   private isSaving = false;
   private selectedPerson = null;
-  private persons = [];
-  private search = null;
+  private persons: any[] = [];
+  private search: string = "";
   private sorting = "name";
   private ordering = "ASC";
 
   // $q is not required here
   static $inject = ["Contact", "toaster"];
-  constructor(Contact, toaster) {
+  constructor(Contact: Contact, toaster: any) {
     this.Contact = Contact;
     this.toaster = toaster;
     this.loadContacts();
   }
 
-  getPerson(email) {
+  getPerson(email: string) {
     console.log(email);
     for (let person of this.persons) {
       if (person.email === email) {
@@ -51,13 +52,13 @@ export class ContactService {
       this.isLoading = true;
 
       let params = {
-        _page: this.page,
+        _page: this.page.toString(),
         _sort: this.sorting,
         _order: this.ordering,
         q: this.search
       };
 
-      this.Contact.query(params).then(result => {
+      this.Contact.query(params).then((result: any) => {
         console.debug(result);
         for(let person of result.data) {
           this.persons.push(person);
@@ -78,7 +79,7 @@ export class ContactService {
     }
   }
 
-  updateContact(person) {
+  updateContact(person: any) {
     // $q is not used anymore, so instead return promise
     // var d = $q.defer();
     return new Promise<void>((resolve, reject) => {
@@ -91,7 +92,7 @@ export class ContactService {
     });
   }
 
-  removeContact(person) {
+  removeContact(person: any) {
     return new Promise<void>((resolve, reject) => {
       this.isDeleting = true;
       const name = person.name;
@@ -105,7 +106,7 @@ export class ContactService {
     });
   }
 
-  createContact(person) {
+  createContact(person: any) {
     return new Promise<void>((resolve, reject) => {
       this.isSaving = true;
       this.Contact.save(person).then(() => {

@@ -1,15 +1,16 @@
 import * as angular from "angular";
+import { ContactService } from "../services/contact.service";
 
 let PersonListComponent = {
   selector: "personList", // <person-list></person-list>
-  templateUrl: "templates/list.html",
+  templateUrl: "assets/templates/list.html",
   bindings: {},
   controller: class PersonListController {
     public contacts;
 
     static $inject = ["ContactService"];
     constructor(
-      ContactService) {
+      ContactService: ContactService) {
       this.contacts = ContactService;
     }
   }

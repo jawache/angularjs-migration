@@ -5,27 +5,28 @@ export class Contact {
   private $http;
 
   static $inject = ["$http"];
-  constructor($http) {
+  constructor($http: any) {
     this.$http = $http;
   }
 
-  query(params: {string: string}) {
+  // query(params: {string: string}) {
+  query(params: any) {
     return this.$http.get(this.apiRoot, {params});
   }
 
-  get(id, params: {string: string}) {
+  get(id: any, params: any) {
     return this.$http.get(`${this.apiRoot}/${id}`, {params});
   }
 
-  save(contact) {
+  save(contact: any) {
     return this.$http.post(this.apiRoot, contact);
   }
 
-  update(contact) {
+  update(contact: any) {
     return this.$http.put(`${this.apiRoot}/${contact.id}`, contact);
   }
 
-  remove(contact) {
+  remove(contact: any) {
     return this.$http.delete(`${this.apiRoot}/${contact.id}`);
   }
 }

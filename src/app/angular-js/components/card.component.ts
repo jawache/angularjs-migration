@@ -1,18 +1,19 @@
 import * as angular from "angular";
+import { ContactService } from "../services/contact.service";
 
 let CardComponent = {
     selector: "ccCard",
-    templateUrl: "templates/card.html",
+    templateUrl: "assets/templates/card.html",
     bindings: {
         user: "="
     },
     controller: class CardController {
         private ContactService;
         private isDeleting: boolean;
-        private user;
+        private user: any;
 
         static $inject = ["ContactService"];
-        constructor(ContactService) {
+        constructor(ContactService: ContactService) {
             this.ContactService = ContactService;
             this.isDeleting = false;
         }
@@ -33,7 +34,7 @@ angular.module("codecraft").component(CardComponent.selector, CardComponent);
 //   .directive("ccCard", function() {
 //     return {
 //       restrict: "AE",
-//       templateUrl: "templates/card.html",
+//       templateUrl: "assets/templates/card.html",
 //       scope: {
 //         user: "="
 //       },

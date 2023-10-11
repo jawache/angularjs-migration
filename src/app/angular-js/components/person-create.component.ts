@@ -1,8 +1,9 @@
 import * as angular from "angular";
+import { ContactService } from "../services/contact.service";
 
 let PersonCreateComponent = {
   selector: "personCreate", // <person-create></person-create>
-  templateUrl: "templates/create.html",
+  templateUrl: "assets/templates/create.html",
   bindings: {},
   controller: class PersonCreateController {
     public contacts;
@@ -11,8 +12,8 @@ let PersonCreateComponent = {
 
     static $inject = ["$state", "ContactService"];
     constructor(
-      $state,
-      ContactService) {
+      $state: any,
+      ContactService: ContactService) {
       this.$state = $state;
       this.contacts = ContactService;
     }

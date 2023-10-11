@@ -1,14 +1,15 @@
 import * as angular from "angular";
+import { ContactService } from "../services/contact.service";
 
 let SearchComponent = {
   selector: "search", // <search></search>
-  templateUrl: "templates/searchform.html",
+  templateUrl: "assets/templates/searchform.html",
   bindings: {},
   controller: class SearchController {
     public contacts;
 
     static $inject = ["ContactService"];
-    constructor(ContactService) {
+    constructor(ContactService: ContactService) {
       this.contacts = ContactService;
     }
 

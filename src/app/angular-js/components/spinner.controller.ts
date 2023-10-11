@@ -2,7 +2,7 @@ import * as angular from "angular";
 
 let SpinnerComponent = {
   selector: "ccSpinner",
-  templateUrl: "templates/spinner.html",
+  templateUrl: "assets/templates/spinner.html",
   bindings: {
     isLoading: "=",
     message: "@"
@@ -19,7 +19,7 @@ angular.module("codecraft").component(SpinnerComponent.selector, SpinnerComponen
 //   .directive("ccSpinner", function() {
 //     return {
 //       restrict: "AE",
-//       templateUrl: "templates/spinner.html",
+//       templateUrl: "assets/templates/spinner.html",
 //       scope: {
 //         isLoading: "=",
 //         message: "@"

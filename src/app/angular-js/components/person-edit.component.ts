@@ -1,19 +1,20 @@
 import * as angular from "angular";
+import { ContactService } from "../services/contact.service";
 
 let PersonEditComponent = {
   selector: "personEdit", // <person-edit></person-edit>
-  templateUrl: "templates/edit.html",
+  templateUrl: "assets/templates/edit.html",
   bindings: {},
   controller: class PersonEditController {
     public contacts;
-    private person;
+    private person: any;
     private $state;
 
     static $inject = ["$stateParams", "$state", "ContactService"];
     constructor(
-      $stateParams,
-      $state,
-      ContactService) {
+      $stateParams: any,
+      $state: any,
+      ContactService: ContactService) {
       this.$state = $state;
       this.contacts = ContactService;
       this.person = this.contacts.getPerson($stateParams.email);

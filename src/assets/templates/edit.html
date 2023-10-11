@@ -10,14 +10,21 @@
         <div class="pull-right">
           <button class="btn btn-primary btn-sm"
                   ladda="$ctrl.contacts.isSaving"
-                  type="submit">Create
+                  type="submit">Save
+          </button>
+
+          <button class="btn btn-danger btn-sm"
+                  ladda="$ctrl.contacts.isDeleting"
+                  ng-click="$ctrl.remove()">Delete
           </button>
         </div>
         <div class="clearfix"></div>
 
       </div>
       <div class="panel-body">
-        <ng-include src="'templates/form.html'"></ng-include>
+
+        <ng-include src="'assets/templates/form.html'"></ng-include>
+
       </div>
     </div>
   </form>
