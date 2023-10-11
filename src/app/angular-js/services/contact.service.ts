@@ -1,5 +1,5 @@
 import * as angular from "angular";
-import { Contact } from "./contact.resource";
+import { Contact } from "../../services/contact.resource";
 
 export class ContactService {
   private Contact;
@@ -60,11 +60,11 @@ export class ContactService {
 
       this.Contact.query(params).then((result: any) => {
         console.debug(result);
-        for(let person of result.data) {
+        for(let person of result) {
           this.persons.push(person);
         };
 
-        if (!result.data) {
+        if (!result) {
           this.hasMore = false;
         }
         this.isLoading = false;
