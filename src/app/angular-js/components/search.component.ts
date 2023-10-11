@@ -1,5 +1,5 @@
 import * as angular from "angular";
-import { ContactService } from "../services/contact.service";
+import { ContactService } from "../../services/contact.service";
 
 let SearchComponent = {
   selector: "search", // <search></search>

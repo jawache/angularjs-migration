@@ -5,6 +5,7 @@ import {UpgradeModule} from '@angular/upgrade/static';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Contact } from './services/contact.resource';
 import { HttpClientModule } from '@angular/common/http';
+import { ContactService } from './services/contact.service';
 
 @NgModule({
   declarations: [],
@@ -16,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     UpgradeModule,
     {provide: '$injector', useFactory: () => window['angular'].injector(['ng'])},
     Contact,
+    ContactService,
   ]
 })
 export class AppModule {
