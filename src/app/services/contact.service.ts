@@ -14,9 +14,9 @@ export class ContactService {
   private isSaving = false;
   private selectedPerson = null;
   private persons: any[] = [];
-  private search: string = "";
-  private sorting = "name";
-  private ordering = "ASC";
+  public search: string = "";
+  public sorting = "name";
+  public ordering = "ASC";
 
   constructor(private contact: Contact) {
     this.loadContacts();

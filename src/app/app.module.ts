@@ -6,12 +6,18 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Contact } from './services/contact.resource';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactService } from './services/contact.service';
+import { SearchComponent } from './components/search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SearchComponent
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     UpgradeModule,
