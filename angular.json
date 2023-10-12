@@ -30,7 +30,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/ladda/dist/ladda-themeless.min.css"
             ],
             "scripts": []
           },

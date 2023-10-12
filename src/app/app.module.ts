@@ -8,16 +8,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContactService } from './services/contact.service';
 import { SearchComponent } from './components/search.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardComponent } from './components/card.component';
+import { DefaultImagePipe } from './pipes/default-image.pipe';
+import { LaddaModule } from 'angular2-ladda';
 
 @NgModule({
   declarations: [
-    SearchComponent
+    SearchComponent,
+    CardComponent,
+    DefaultImagePipe
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    LaddaModule.forRoot({
+      spinnerSize: 20,
+    }),
   ],
   providers: [
     UpgradeModule,

@@ -4,16 +4,6 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 import { downgradeComponent } from "@angular/upgrade/static";
 import { debounceTime, distinctUntilChanged } from "rxjs/operators";
-// import "rxjs/add/operator/debounceTime";
-// import "rxjs/add/operator/distinctUntilChanged";
-// import "rxjs/add/operator/do";
-
-// let SearchComponent = {
-//   selector: "search", // <search></search>
-//   templateUrl: "assets/templates/searchform.html",
-//   bindings: {},
-//   controller: 
-// };
 
 @Component({
   selector: "search",
