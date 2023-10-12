@@ -31,7 +31,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/ladda/dist/ladda-themeless.min.css"
+              "node_modules/ladda/dist/ladda-themeless.min.css",
+              "node_modules/spin.js/spin.css"
             ],
             "scripts": []
           },

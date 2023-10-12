@@ -11,11 +11,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardComponent } from './components/card.component';
 import { DefaultImagePipe } from './pipes/default-image.pipe';
 import { LaddaModule } from 'angular2-ladda';
+import { SpinnerComponent } from './components/spinner.component';
 
 @NgModule({
   declarations: [
     SearchComponent,
     CardComponent,
+    SpinnerComponent,
     DefaultImagePipe
   ],
   imports: [
