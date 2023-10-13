@@ -1,6 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from "@angular/core";
-import { downgradeComponent } from "@angular/upgrade/static";
-import * as angular from "angular";
+import { AfterViewInit, Component, ElementRef, Input, ViewChild } from "@angular/core";
 import { Spinner } from "spin.js";
 
 @Component({
@@ -8,10 +6,8 @@ import { Spinner } from "spin.js";
   templateUrl: "./spinner.component.html",
 })
 export class SpinnerComponent implements AfterViewInit {
-  @Input()
-  protected isLoading: boolean = false;
-  @Input()
-  protected message: string = 'Loading...';
+  @Input() isLoading: boolean = false;
+  @Input() message: string = 'Loading...';
   @ViewChild('spinnerEl', {static: true})
   protected spinnerEl!: ElementRef;
 
@@ -26,5 +22,3 @@ export class SpinnerComponent implements AfterViewInit {
   }
 
 }
-
-angular.module("codecraft").directive('ccSpinner', downgradeComponent({component: SpinnerComponent, inputs: ['isLoading', 'message']}));

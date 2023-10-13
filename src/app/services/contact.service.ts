@@ -9,11 +9,11 @@ import { downgradeInjectable } from "@angular/upgrade/static";
 export class ContactService {
   private page = 1;
   private hasMore = true;
-  private isLoading = false;
+  public isLoading = false;
   private isDeleting = false;
   private isSaving = false;
   private selectedPerson = null;
-  private persons: any[] = [];
+  public persons: any[] = [];
   public search: string = "";
   public sorting = "name";
   public ordering = "ASC";

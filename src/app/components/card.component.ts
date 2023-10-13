@@ -1,7 +1,5 @@
-import * as angular from "angular";
 import { ContactService } from "../services/contact.service";
 import { Component, Input, OnInit } from "@angular/core";
-import { downgradeComponent } from "@angular/upgrade/static";
 
 @Component({
     selector: "ccCard",
@@ -9,8 +7,7 @@ import { downgradeComponent } from "@angular/upgrade/static";
 })
 export class CardComponent implements OnInit {
     protected isDeleting: boolean;
-    @Input()
-    protected user: any;
+    @Input() user: any;
 
     constructor(private contactService: ContactService) {
         this.isDeleting = false;
@@ -27,5 +24,3 @@ export class CardComponent implements OnInit {
         });
     }
 }
-
-angular.module("codecraft").directive('ccCard', downgradeComponent({component: CardComponent, inputs: ['user']}));
