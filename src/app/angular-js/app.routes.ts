@@ -33,4 +33,5 @@ angular
       });
 
     $urlRouterProvider.otherwise("/");
+    console.log('codecraft-angularjs app.routes.ts');
   }]);

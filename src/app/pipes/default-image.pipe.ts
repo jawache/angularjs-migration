@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class DefaultImagePipe implements PipeTransform {
   transform(src: string, def?: string): unknown {
     if (!def) {
-      def = "/img/avatar.png"
+      def = "assets/img/avatar.png"
     }
     if (!src) {
       return def

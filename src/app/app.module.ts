@@ -13,6 +13,8 @@ import { DefaultImagePipe } from './pipes/default-image.pipe';
 import { LaddaModule } from 'angular2-ladda';
 import { SpinnerComponent } from './components/spinner.component';
 import { PersonListComponent } from './components/person-list.component';
+import { PersonCreateComponent } from './components/person-create.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { PersonListComponent } from './components/person-list.component';
     CardComponent,
     SpinnerComponent,
     PersonListComponent,
+    PersonCreateComponent,
     DefaultImagePipe
   ],
   imports: [
@@ -27,6 +30,7 @@ import { PersonListComponent } from './components/person-list.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    RouterModule,
     LaddaModule.forRoot({
       spinnerSize: 20,
     }),

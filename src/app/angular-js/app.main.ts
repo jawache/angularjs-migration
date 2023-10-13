@@ -1,5 +1,6 @@
 import * as angular from "angular";
 
+console.log('AngularJS module "codecraft" configuration');
 angular
   .module("codecraft", [
     "ngResource",
