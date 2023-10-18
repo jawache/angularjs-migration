@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import {UpgradeModule} from '@angular/upgrade/static';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { Contact } from './services/contact.resource';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactService } from './services/contact.service';
@@ -15,40 +14,37 @@ import { SpinnerComponent } from './components/spinner.component';
 import { PersonListComponent } from './components/person-list.component';
 import { PersonCreateComponent } from './components/person-create.component';
 import { RouterModule } from '@angular/router';
+import { PersonEditComponent } from './components/person-edit.component';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
   declarations: [
+    AppComponent,
     SearchComponent,
     CardComponent,
     SpinnerComponent,
     PersonListComponent,
     PersonCreateComponent,
+    PersonEditComponent,
     DefaultImagePipe
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule,
+    RouterModule.forRoot([]),
     LaddaModule.forRoot({
       spinnerSize: 20,
     }),
   ],
   providers: [
     UpgradeModule,
-    {provide: '$injector', useFactory: () => window['angular'].injector(['ng'])},
     Contact,
     ContactService,
-  ]
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor(private upgrade: UpgradeModule) {}
-  ngDoBootstrap() {}
-}
-
-platformBrowserDynamic().bootstrapModule(AppModule).then(platformRef => {
-  console.log("Bootstrapping in Hybrid mode with Angular & AngularJS");
-  const upgrade = platformRef.injector.get(UpgradeModule) as UpgradeModule;
-  upgrade.bootstrap(document.body, ['codecraft']);
-});
+export class AppModule {}

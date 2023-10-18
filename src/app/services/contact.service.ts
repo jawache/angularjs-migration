@@ -117,5 +117,3 @@ export class ContactService {
     });
   }
 }
-
-angular.module("codecraft").factory("ContactService", downgradeInjectable(ContactService));

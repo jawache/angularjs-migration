@@ -37,5 +37,3 @@ export class PersonCreateComponent {
     });
   }
 }
-
-angular.module("codecraft").directive('personCreate', downgradeComponent({component: PersonCreateComponent}));

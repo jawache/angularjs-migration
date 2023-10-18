@@ -40,4 +40,3 @@ export class SearchComponent implements OnInit {
   }
 }
 
-angular.module("codecraft").directive('search', downgradeComponent({component: SearchComponent}));

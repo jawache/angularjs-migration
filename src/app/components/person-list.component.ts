@@ -11,5 +11,3 @@ export class PersonListComponent {
   constructor(public contacts: ContactService) {}
   
 }
-
-angular.module("codecraft").directive('personList', downgradeComponent({component: PersonListComponent}));
